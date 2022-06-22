@@ -1,0 +1,49 @@
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        if (isUseLocalReposLibs == "true") {
+            maven { url uri('./repos') }
+        }
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.2"
+        if (isUseLocalReposLibs == "true") {
+            classpath 'com.pixocial.alter:alter-gradle-plugin:1.0.0'
+        }
+    }
+}
+
+Map<String, String> map = new HashMap<>(startParameter.projectProperties)
+//设置需要生成api-module的 module工程
+map.put("alterIncludeApiModules", ['module-a'])
+startParameter.setProjectProperties(map)
+
+rootProject.name = "android-alter"
+
+apply plugin: 'alter-init'
+
+include ':alter-annotation'
+project(':alter-annotation').projectDir = new File("Alter/alter-annotation")
+
+include ':alter-compiler'
+project(':alter-compiler').projectDir = new File("Alter/alter-compiler")
+
+include ':alter-gradle-plugin'
+project(':alter-gradle-plugin').projectDir = new File("Alter/alter-gradle-plugin")
+
+include ':alter-core'
+project(':alter-core').projectDir = new File("Alter/alter-core")
+
+include ':alter-demo'
+project(':alter-demo').projectDir = new File("Alter-Samples/alter-demo")
+
+include ':module-a'
+project(':module-a').projectDir = new File("Alter-Samples/module-a")
+
+include ':module-b'
+project(':module-b').projectDir = new File("Alter-Samples/module-b")
+
+include ':module-base'
+project(':module-base').projectDir = new File("Alter-Samples/module-base")

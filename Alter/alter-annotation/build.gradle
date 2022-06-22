@@ -1,0 +1,35 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+Boolean isLocalLib = properties.get("isUseLocalReposLibs") == "true"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+if (isLocalLib) {
+    apply plugin: 'maven'
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                repository(url: uri('../../repos')) {
+                    //设置groupId，通常为包名
+                    pom.groupId = "com.pixocial.alter"
+
+                    pom.artifactId = "alter-annotation"
+
+                    pom.version = "1.0.0"
+                }
+            }
+        }
+    }
+}
+
+

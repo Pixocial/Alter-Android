@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pixocial.alter.demo">
+
+    <application
+        android:name="com.pixocial.alter.demo.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/Theme.AndroidComponent"
+        android:supportsRtl="true">
+        <activity android:name="com.pixocial.alter.demo.AlterMainActivity">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity android:name="com.pixocial.alter.demo.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.pixocial.alter.demo.Page1Activity" />
+        <activity android:name="com.pixocial.alter.demo.Page2Activity" />
+        <activity android:name="com.pixocial.alter.demo.JavaPageActivity" />
+        <activity android:name="com.pixocial.alter.demo.AnimationPageActivity" />
+        <activity android:name="com.pixocial.alter.demo.ForResultPageActivity" />
+        <activity android:name="com.pixocial.alter.demo.FragmentPageActivity" />
+        <activity android:name="com.pixocial.alter.demo.KotlinPageActivity" />
+    </application>
+
+</manifest>

@@ -1,0 +1,40 @@
+apply from: "config.gradle"
+apply plugin: 'alter-api'
+
+buildscript {
+
+    ext {
+        kotlin_version = '1.4.32'
+    }
+
+    repositories {
+        google()
+        jcenter()
+        if (isUseLocalReposLibs == "true") {
+            maven { url uri('./repos') }
+        }
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        if (isUseLocalReposLibs == "true") {
+            classpath 'com.pixocial.alter:alter-gradle-plugin:1.0.0'
+        }
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        if (isUseLocalReposLibs == "true") {
+            maven { url uri('../repos') }
+            maven { url uri('../../repos') }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
