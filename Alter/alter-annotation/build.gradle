@@ -3,7 +3,7 @@ plugins {
     id 'kotlin'
 }
 
-Boolean isLocalLib = properties.get("isUseLocalReposLibs") == "true"
+Boolean isLocalLib = false
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -30,6 +30,9 @@ if (isLocalLib) {
             }
         }
     }
+} else {
+    apply plugin: 'com.github.dcendents.android-maven'
+    group = 'com.pixocial.alter'
 }
 
 

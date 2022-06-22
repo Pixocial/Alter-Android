@@ -10,17 +10,15 @@ buildscript {
     repositories {
         google()
         jcenter()
-        if (isUseLocalReposLibs == "true") {
-            maven { url uri('./repos') }
-        }
+        maven { url uri('./repos') }
     }
+
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.2"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
 
-        if (isUseLocalReposLibs == "true") {
-            classpath 'com.pixocial.alter:alter-gradle-plugin:1.0.0'
-        }
+        classpath 'com.pixocial.alter:alter-gradle-plugin:1.0.0'
     }
 }
 
@@ -28,10 +26,8 @@ allprojects {
     repositories {
         google()
         jcenter()
-        if (isUseLocalReposLibs == "true") {
-            maven { url uri('../repos') }
-            maven { url uri('../../repos') }
-        }
+        maven { url uri('../repos') }
+        maven { url uri('../../repos') }
     }
 }
 
