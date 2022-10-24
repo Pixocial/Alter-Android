@@ -1,6 +1,6 @@
 # Alter 接入文档  
 
-`Alter` 是美图海外Android组件化框架，主要包含了以下几块功能：  
+`Alter` 是一个Android组件化框架，主要包含了以下几块功能：  
 1. 支持自动生成 `module` 的 `module-api` 工程  
 2. 支持服务的注册  
 3. 支持路由跳转  
